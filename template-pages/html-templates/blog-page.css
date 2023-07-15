@@ -5,9 +5,11 @@ body{
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
  .blog-header {
+
     justify-content: right;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin-left: 4%;
     font-size: 10px;
     color: #030303;
     
