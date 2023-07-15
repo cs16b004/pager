@@ -1,0 +1,13 @@
+
+pager:
+  blogDirectory: 'md-pages'
+  webDirectory: 'site-pages'
+  homePagePath: 'md-pages/home.md'
+  site-pages: 'site-pages'
+  linkedIn: 'linked-user/123'
+  github: 'githubuser'
+  mail: 'mail@mail.com'
+  cv: 'cv.html'
+  iconPath: 'images/mizi.png'
+  name: 'Username'
+

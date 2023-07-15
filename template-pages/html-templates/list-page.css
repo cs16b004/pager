@@ -1,0 +1,134 @@
+
+body{
+  background-color: #eee;
+  transition: all 0.5s ease-out;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+ .list-header {
+    justify-content: right;
+    display: flex;
+    flex-direction: row;
+    font-size: 10px;
+    color: #030303;
+    
+    padding-top: 5%;
+    padding-right: 1%;
+    width: auto;
+    overflow-x: hidden;
+    /* border-color: blue;
+  border-left: solid;
+  border-top: solid;
+  border-bottom: solid;
+  border-right:solid ; */
+  
+    
+} 
+
+.list-header a{
+    font-size: 10px;
+    font-weight: bold;
+  text-align: inherit;
+  padding: 14px 16px;
+  text-decoration: line;
+  
+}
+.list-header a:hover {
+  color: black;
+}
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  flex-wrap: wrap;
+  float: left;
+  width: 20%;
+  height: 200%; /* only for demonstration, should be removed */
+  /* border-color: red;
+  border-left: solid;
+  border-top: solid;
+  border-bottom: solid;
+  border-right:solid ;
+  background: #ccc;
+  padding: 20px; */
+}
+.list-index{
+ /* display: flex;
+  justify-content: space-evenly;
+    flex-direction: column;*/
+  background-color: #edd;
+  width: 20%;
+  
+  margin-left: 0%;
+
+  color: #666;
+  font-size: 15px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  
+  /* border-color: red;
+  border-left: solid;
+  border-top: solid;
+  border-bottom: solid;
+  border-right:solid ;
+   */
+
+
+
+}
+nav li a{
+  display: flex;
+  color: #666;
+  text-decoration: none;
+}
+.nav li a:hover{
+  color: #04011e;
+}
+.list-title{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: #04011e;
+  font-weight: bold;
+  text-align: center;
+  
+  background-color: #eee;
+  /* border-color: #030303;
+  border-left: solid;
+  border-top: solid;
+  border-bottom: solid;
+  border-right:solid ; */
+}
+.list-title h1{
+    font-size: 30px;
+    color: #04011e;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    
+}
+.list-body{
+  margin-left: 25%;
+  margin-right: 25%;
+  background-color: #eee;
+  border-color: #030303;
+  font-size: medium;
+  color: #666;
+  font-weight: 350;
+  /* border-left: solid;
+  border-top: solid;
+  border-bottom: solid;
+  border-right:solid ; */
+}
+
+.list-body img{
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color: #eee;
+  border-color: #030303;
+  text-rendering: optimizeLegibility;
+  text-indent: 10em;
+  /* border-left: solid;
+  border-top: solid;
+  border-bottom: solid;
+  border-right:solid ; */
+}
