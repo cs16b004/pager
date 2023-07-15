@@ -150,9 +150,10 @@ class BlogPage (name:String, title:String, mdFilePath:String) extends Page(name:
     val log = Logger(getClass.getName)
     override def parseTop(config:Json):Unit = {
 
-                val git_username = config.findAllByKey("github").mkString
-                val linkedIn = config.findAllByKey("linkedIn").mkString
-                val e_mail = config.findAllByKey("mail").mkString
+                val git_username = config.findAllByKey("github").mkString.stripPrefix("\"").stripSuffix("\"")
+                val linkedIn = config.findAllByKey("linkedIn").mkString.stripPrefix("\"").stripSuffix("\"")
+                val e_mail = config.findAllByKey("mail").mkString.stripPrefix("\"").stripSuffix("\"")
+
                 var htmlContent: String =
                     s"""
                        |${Constants.blogPageOpenHead}
@@ -162,12 +163,13 @@ class BlogPage (name:String, title:String, mdFilePath:String) extends Page(name:
                        |${Constants.blogPageOpenBody}
                        |<header>
                        |    <div class = "blog-header">
-                       |        <a> ${}</a>
-                       |        <a href="parent-page.html">parent-page</a>
-                       |        <img src = "images/github-mark/github-mark.png" width="20" height="20">
-                       |        <a href="https://www.github.com/${git_username}">${git_username}</a>
-                       |        <img src="images/noun-mail-242735.png" width="20" height="20">
-                       |        <a href="mailto: ${e_mail}">mail</a>
+                       |        <a href ="${linkedIn}"><img src = "images/LI-In-Bug.png" width="30" height="30"></a>
+                       |
+                       |        <a href="https://www.github.com/${git_username}">
+                       |            <img src = "images/github-mark/github-mark.png" width="30" height="30">
+                       |         </a>
+                       |
+                       |        <a href="mailto: ${e_mail}"><img src="images/mailLogo.png" width="30" height="30"></a>
                        |</div>
                        |</header>
                        |""".stripMargin

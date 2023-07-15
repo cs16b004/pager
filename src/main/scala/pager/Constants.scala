@@ -81,6 +81,7 @@ object Constants{
       |    padding-right: 1%;
       |    width: auto;
       |    overflow-x: hidden;
+      |    //margin-left: 4%;
       |    /* border-color: blue;
       |  border-left: solid;
       |  border-top: solid;
