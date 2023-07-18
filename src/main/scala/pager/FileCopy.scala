@@ -2,6 +2,7 @@ package pager
 
 import com.typesafe.scalalogging.Logger
 import io.circe.Json
+import os.FilePath
 
 object FileCopy {
   val log = Logger(getClass.getName)
@@ -30,5 +31,11 @@ object FileCopy {
 
     os.copy.over(fromImageDir,toImageDir,true)
     log.info(s"Copied images from ${fromImageDir.toString} to ${toImageDir}")
+
+
+    val iconPath = os.pwd / "icons"/ "images"
+
+    os.copy.over(iconPath, toImageDir, true)
+    log.info(s"Copied images from ${iconPath.toString} to ${toImageDir}")
   }
 }
