@@ -1,15 +1,27 @@
- {{ PageType: BlogPage}} Blog Title1About 
+ {{ PageType: BlogPage}} About
+ 
+I am a Software Engineer. My interest lie in systems, primarily:
+ - Distributed Systems,
+ - Computer Networks 
+ - Security.
 
-## Section
+Currently, I am doing Masters at Stony Brook University.
+Advised by [Dr. Shuai Mu](http://mpaxos.com). 
+ - I use to work as a Software Engineer at [UBS](https://www.ubs.com).
+ - I completed my undergraduate in CS from [IIT Tirupati](https://www.iittp.ac.in)
 
-text text text text text text text **bold**
-- list 1
-- list 2
-- list 3
+**Things I think I know about:**
+ - Distributed System Concepts / Protocols
+ - Computer Networks Protocols
+ - Computer Security
+ - Probability and Statistics.
 
-* bullet 1
-* bullet 2
-* bullet 3
+**Things I may know about:**
+ - Economics
+ - Indian National Movement
 
-## Section 2
-text text text text
+**Things I should not know about (not exhaustive):**
+ - ~~[xKcd](https://www.xkcd.com)~~
+ - ~~nuclear codes.~~**
+ - ~~[राग दरबारी](https://en.wikipedia.org/wiki/Raag_Darbari_(novel))~~
+

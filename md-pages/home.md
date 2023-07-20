@@ -1,9 +1,8 @@
-{{PageType: HomePage }} Title
+{{PageType: HomePage }} Ayush Jain
 
 
 
 - [about](about.md)
-- [notes](notes.md)
-
-- [Gallery](gallery.md)
-- [Projects](projects.md)
+- [writing](notes.md)
+- [work / projects](gallery.md)
+- [CV](cv.html)
