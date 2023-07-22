@@ -28,14 +28,16 @@ object FileCopy {
 
     val fromImageDir = os.pwd / config.findAllByKey("blogDirectory").mkString.stripPrefix("\"").stripSuffix("\"") / "images"
     val toImageDir = webDir / "images"
-
+    val toIconDir  = webDir / "icons"
     os.copy.over(fromImageDir,toImageDir,true)
     log.info(s"Copied images from ${fromImageDir.toString} to ${toImageDir}")
-
+    if (!os.exists(toIconDir)) {
+      os.makeDir(toIconDir)
+    }
 
     val iconPath = os.pwd / "icons"/ "images"
 
-    os.copy.over(iconPath, toImageDir, true)
+    os.copy.over(iconPath, toIconDir, true)
     log.info(s"Copied images from ${iconPath.toString} to ${toImageDir}")
   }
 }
