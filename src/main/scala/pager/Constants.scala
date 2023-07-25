@@ -128,6 +128,7 @@ object Constants{
     val listPageCss:String =
       """
         |
+        |
         |body{
         |  background-color: #eee;
         |  transition: all 0.5s ease-out;
@@ -236,11 +237,12 @@ object Constants{
         |
         |
         |
-        |  margin-left: 20%;
+        |  margin-left: 10%;
         |  margin-right: 10%;
         |  background-color: #eee;
         |  border-color: #030303;
-        |  font-size: medium;
+        |  font-size: 10pt;
+        |  line-height: 1.5;
         |  color: #666;
         |  font-weight: 350;
         |  /* border-left: solid;
@@ -258,6 +260,7 @@ object Constants{
         |
         |.left-box{
         |flex: 55%;
+        |padding: 30px;
         |
         |}
         |.right-box{
@@ -286,11 +289,11 @@ object Constants{
         |
         |/* Container around content */
         |.container {
-        |  padding: 5px 40px;
+        | /* padding: 5px 40px;*/
         |  position: relative;
         |  background-color: #eee;
         |
-        |  width: 50%;
+        |  /*width: 90%;*/
         |}
         |
         |/* The circles on the timeline */
@@ -389,6 +392,7 @@ object Constants{
         |    left: 0%;
         |  }
         |}
+        |
         |
         |""".stripMargin
     val blogPageCss:String =

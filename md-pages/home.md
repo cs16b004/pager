@@ -4,5 +4,5 @@
 
 - [about](about.md)
 - [writing](notes.md)
-- [work / projects](gallery.md)
+- [work / projects](projects.md)
 - [CV](cv.html)
