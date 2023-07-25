@@ -1,15 +1,19 @@
-{{ PageType: BlogPage}} Blog Title1Projects
+{{ PageType: ListPage}} Blog Title1Projects
 
-## Section
+#LEFT
 
-text text text text text text text **bold**
-- list 1
-- list 2
-- list 3
+Loreom ipsum ..dslkjndfdsjf
+slkdfjlkdfjldkfj
+   sdlkfjdlskjf   ldskfjlkj
 
-* bullet 1
-* bullet 2
-* bullet 3
+#RIGHT
+- #### [list 1](abc.html)
+    - lksajfdldkfjdklsfj
+    - ldksflksdjfkljf
+    - lksdfjlksdjfklsdf
+- # list 2
+    - list lksajdklsajdklj
+    - kjsdfjkdsfjkdf
+    - 
+- # list 3
 
-## Section 2
-text text text text

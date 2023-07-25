@@ -12,6 +12,7 @@ import scala.collection.mutable
 import scala.util.matching.Regex
 import scala.collection.mutable._
 import scala.io.Source
+import scala.util.control.Breaks._
 
 case class Page(name:String, title:String, mdFilePath:String){
 
@@ -206,6 +207,171 @@ class BlogPage (name:String, title:String, mdFilePath:String) extends Page(name:
                 err.printStackTrace()
             }
         }
+    }
+
+
+    override def toString: String = {
+        s"""
+           |Name: ${name}
+           |Title: ${title}
+           |filePath: ${mdFilePath}
+           |type: BlogPage
+           |""".stripMargin
+
+    }
+}
+class ListPage (name:String, title:String, mdFilePath:String) extends Page(name:String, title:String, mdFilePath:String) {
+
+    val log = Logger(getClass.getName)
+    val leftSidePattern:Regex = "(\\s*)(#LEFT)(\\s*)".r
+    val rightSidePattern:Regex = "(\\s*)(#RIGHT)(\\s*)".r
+    override def parseTop(config:Json):Unit = {
+
+        val git_username = config.findAllByKey("github").mkString.stripPrefix("\"").stripSuffix("\"")
+        val linkedIn = config.findAllByKey("linkedIn").mkString.stripPrefix("\"").stripSuffix("\"")
+        val e_mail = config.findAllByKey("mail").mkString.stripPrefix("\"").stripSuffix("\"")
+
+        var htmlContent: String =
+            s"""
+               |${Constants.listPageOpen}
+               |
+               |${title}
+               |${Constants.listPageHeadClose}
+               |${Constants.listPageBodyOpen}
+               |        <a href ="${linkedIn}"><img src = "icons/LI-In-Bug.png" width="30" height="30"></a>
+               |
+               |        <a href="https://www.github.com/${git_username}">
+               |            <img src = "icons/github-mark/github-mark.png" width="30" height="30">
+               |         </a>
+               |
+               |        <a href="mailto: ${e_mail}"><img src="icons/mailLogo.png" width="30" height="30"></a>
+               |${Constants.listPageHeaderClose}
+               |""".stripMargin
+        parsedContent+=htmlContent
+        log.info(s"Parsed the header content for ${toString}")
+    }
+    override def parseContent():Unit = {
+        val pageContent: Array[String] = Source.fromFile(mdFilePath)
+          .getLines.toArray.drop(1)
+        var leftContent:String = ""
+        var rightContent:String = ""
+        var leftFound:Boolean = false
+        var rightFound:Boolean = false
+        for (line <- pageContent){
+          breakable{
+              if(Constants.matches(leftSidePattern,line)){
+                leftFound = true
+                  rightFound = false
+                break
+              }
+              if(leftFound && !Constants.matches(rightSidePattern,line)){
+                leftContent+=line
+                  leftContent+="\n"
+              }
+              if(Constants.matches(rightSidePattern,line)){
+                  rightFound  = true
+                  leftFound=false
+                  break
+              }
+              if(rightFound && !Constants.matches(leftSidePattern,line)){
+                  rightContent+=line
+                  rightContent+="\n"
+              }
+          }
+
+        }
+        var htmlContent:String =
+            s"""
+              |<div class="list-title">
+              |    <h1>${title}</h1>
+              |</div>
+              |""".stripMargin
+        val transformedLeftContent = transformer.transform(leftContent)
+        transformedLeftContent match {
+            case Right(html) => {
+                htmlContent+=
+                    s"""
+                       |${Constants.listPageLeftBoxOpen}
+                       |${html}
+                       |${Constants.listPageLeftBoxClose}
+                       |""".stripMargin
+
+               // parsedContent+=htmlContent
+                log.info(s"Parsed the left-body content for ${toString}")
+            }
+            case Left(err) =>{
+                log.error(s"Parsing Error in ${toString}")
+                log.error(err.message)
+                err.printStackTrace()
+            }
+        }
+
+        val transformedRightContent = transformer.transform(rightContent)
+        transformedRightContent match {
+            case Right(html) => {
+
+
+                htmlContent +=
+                  s"""
+                     |${Constants.listPageRightBoxOpen}
+                     |""".stripMargin
+                var liCount = 0
+                var i=0
+                var j=0
+                val htmlMut: scala.collection.mutable.ArrayBuffer[Char] = (html.toCharArray).to[ArrayBuffer]
+                while(j+4<html.length){
+                    val liCan = html.substring(i,i+4)
+
+                    val c_liCan = html.substring(j,j+5)
+                    if (liCan == "<li>"){
+
+
+                        liCount+=1
+                        if (liCount == 1){
+                            htmlMut(i+1) = 'r'
+                            htmlMut(i+2) = 'e'
+                        }
+                    }
+                    if(c_liCan=="</li>"){
+
+                        liCount-=1
+                        if(liCount == 0){
+                            htmlMut(j+2) = 'r'
+                            htmlMut(j+3) = 'e'
+                        }
+                    }
+                    i+=1
+                    j+=1
+
+                }
+
+                var htmlMarked = htmlMut.mkString
+                htmlMarked = htmlMarked.replace("<re>",s"${Constants.listPageRightListElemOpen}")
+                  .replace("</re>",s"${Constants.listPageRightListElemClose}")
+                htmlContent +=
+                  s"""
+                     |${htmlMarked}
+                     |${Constants.listPageRightBoxClose}
+                     |""".stripMargin
+
+
+
+                log.info(s"Parsed the right-body content for ${toString}")
+            }
+            case Left(err) => {
+                log.error(s"Parsing Error in ${toString}")
+                log.error(err.message)
+                err.printStackTrace()
+            }
+        }
+        for (linkedPage <- getLinkedPages) {
+            htmlContent = htmlContent.replace(linkedPage, s"${linkedPage.dropRight(2).mkString}html")
+        }
+        htmlContent+=
+          s"""
+            |${Constants.listPageBodyClose}
+            |""".stripMargin
+        parsedContent+=htmlContent
     }
 
 

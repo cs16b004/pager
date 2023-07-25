@@ -16,6 +16,7 @@ object FileCopy {
 
     os.write.over(cssDir/"home-page.css",Constants.homePageCss)
     os.write.over(cssDir/"blog-page.css",Constants.blogPageCss)
+    os.write.over(cssDir/"list-page.css",Constants.listPageCss)
     log.info(s"Copied css files to : ${cssDir.toString()}")
 
   }

@@ -55,13 +55,342 @@ object Constants{
 
       /** Close the html and save*/
      
+    val listPageOpen:String =
+      """
+        |<!DOCTYPE html>
+        |<html>
+        |<head>
+        |    <title>
+        |""".stripMargin
+   val listPageHeadClose:String =
+     """
+       |</title>
+       |    <link rel = "stylesheet" href="css/list-page.css">
+       |</head>
+       |""".stripMargin
+   val listPageBodyOpen:String =
+     """
+       |<body>
+       |<header>
+       |    <!--<header> -->
+       |    <div class = "list-header">
+       |""".stripMargin
+  val listPageHeaderClose: String =
+    """
+      |</div>
+      |    <!-- </header> -->
+      |
+      |</header>
+      |""".stripMargin
+
+     val listPageLeftBoxOpen:String =
+       """
+         |<div class="list-body">
+         |    <div class="left-box">
+         |""".stripMargin
+     val listPageLeftBoxClose:String =
+       """
+         |</div>
+         |""".stripMargin
+     val listPageRightBoxOpen:String =
+       """
+         | <div class = "right-box">
+         |    <div class="timeline">
+         |""".stripMargin
+      val listPageRightListElemOpen:String =
+        """
+          |<div class="container right">
+          |          <div class="list content">
+          |""".stripMargin
+      val listPageRightListElemClose:String =
+        """
+          |   </div>
+          |
+          | </div>
+          |""".stripMargin
+      val listPageRightBoxClose:String =
+        """
+          |</div>
+          |</div>
+          |""".stripMargin
+      val listPageBodyClose:String  =
+        """
+          |</div>
+          |</body>
+          |</html>
+          |""".stripMargin
 
     /*
     *
     * CSS Files as constant Strings
     *
     * */
-
+    val listPageCss:String =
+      """
+        |
+        |body{
+        |  background-color: #eee;
+        |  transition: all 0.5s ease-out;
+        |  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        |}
+        | .list-header {
+        |    justify-content: right;
+        |    display: flex;
+        |    flex-direction: row;
+        |    font-size: 10px;
+        |    color: #030303;
+        |
+        |    padding-top: 5%;
+        |    padding-right: 1%;
+        |    width: auto;
+        |    overflow-x: hidden;
+        |    /* border-color: blue;
+        |  border-left: solid;
+        |  border-top: solid;
+        |  border-bottom: solid;
+        |  border-right:solid ; */
+        |
+        |
+        |}
+        |
+        |.list-header a{
+        |    font-size: 10px;
+        |    font-weight: bold;
+        |  text-align: inherit;
+        |  padding: 14px 16px;
+        |  text-decoration: line;
+        |
+        |}
+        |.list-header a:hover {
+        |  color: black;
+        |}
+        |nav {
+        |  display: flex;
+        |  justify-content: space-evenly;
+        |  flex-direction: column;
+        |  flex-wrap: wrap;
+        |  float: left;
+        |  width: 20%;
+        |  height: 200%; /* only for demonstration, should be removed */
+        |  /* border-color: red;
+        |  border-left: solid;
+        |  border-top: solid;
+        |  border-bottom: solid;
+        |  border-right:solid ;
+        |  background: #ccc;
+        |  padding: 20px; */
+        |}
+        |.list-index{
+        | /* display: flex;
+        |  justify-content: space-evenly;
+        |    flex-direction: column;*/
+        |  background-color: #edd;
+        |  width: 20%;
+        |
+        |  margin-left: 0%;
+        |
+        |  color: #666;
+        |  font-size: 15px;
+        |  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        |
+        |  /* border-color: red;
+        |  border-left: solid;
+        |  border-top: solid;
+        |  border-bottom: solid;
+        |  border-right:solid ;
+        |   */
+        |
+        |
+        |
+        |}
+        |
+        |.list-title{
+        |  display: flex;
+        |  flex-direction: row;
+        |  justify-content: center;
+        |  color: #04011e;
+        |  font-weight: bold;
+        |  text-align: center;
+        |
+        |  background-color: #eee;
+        |  /* border-color: #030303;
+        |  border-left: solid;
+        |  border-top: solid;
+        |  border-bottom: solid;
+        |  border-right:solid ; */
+        |}
+        |
+        |
+        |.list-title h1{
+        |    font-size: 30px;
+        |    color: #04011e;
+        |    font-weight: bold;
+        |    text-align: center;
+        |    margin-left: 25%;
+        |    margin-right: 25%;
+        |
+        |}
+        |.list-body{
+        |
+        |   display: flex;
+        |
+        |
+        |
+        |  margin-left: 20%;
+        |  margin-right: 10%;
+        |  background-color: #eee;
+        |  border-color: #030303;
+        |  font-size: medium;
+        |  color: #666;
+        |  font-weight: 350;
+        |  /* border-left: solid;
+        |  border-top: solid;
+        |  border-bottom: solid;
+        |  border-right:solid ; */
+        |}
+        |
+        |
+        |
+        |* {
+        |  box-sizing: border-box;
+        |}
+        |
+        |
+        |.left-box{
+        |flex: 55%;
+        |
+        |}
+        |.right-box{
+        |   flex: 45%;
+        |
+        |}
+        |
+        |/* The actual timeline (the vertical ruler) */
+        |.timeline {
+        |  position: relative;
+        |  max-width: 1200px;
+        |
+        |}
+        |
+        |/* The actual timeline (the vertical ruler) */
+        |.timeline::after {
+        |  content: '';
+        |  position: absolute;
+        |  width: 3px;
+        |  background-color: #000e;
+        |  top: 0;
+        |  bottom: 0;
+        |  left: 0%;
+        |  margin-left: -9px;
+        |}
+        |
+        |/* Container around content */
+        |.container {
+        |  padding: 5px 40px;
+        |  position: relative;
+        |  background-color: #eee;
+        |
+        |  width: 50%;
+        |}
+        |
+        |/* The circles on the timeline */
+        |.container::after {
+        |  content: '';
+        |  position: absolute;
+        |  width: 10px;
+        |  height: 10px;
+        |  right: -17px;
+        |  background-color: #eee;
+        |  border: 2px solid #666;
+        |  top: 15px;
+        |  border-radius: 50%;
+        |  z-index: 1;
+        |}
+        |
+        |/* Place the container to the left */
+        |
+        |
+        |/* Place the container to the right */
+        |.right {
+        |  left: 0%;
+        |}
+        |
+        |/* Add arrows to the left container (pointing right) */
+        |/* .left::before {
+        |  content: " ";
+        |  height: 0;
+        |  position: absolute;
+        |  top: 22px;
+        |  width: 0;
+        |  z-index: 1;
+        |  right: 30px;
+        |  border: medium solid white;
+        |  border-width: 10px 0 10px 10px;
+        |  border-color: transparent transparent transparent white;
+        |}*/
+        |
+        |/* Add arrows to the right container (pointing left) */
+        |/*.right::before {
+        |  content: " ";
+        |  height: 0;
+        |  position: absolute;
+        |  top: 22px;
+        |  width: 0;
+        |  z-index: 1;
+        |  left: 30px;
+        |  border: #eee;
+        |  border-width: 10px 10px 10px 0;
+        |
+        |}*/
+        |
+        |/* Fix the circle for containers on the right side */
+        |.right::after {
+        |  left: -55px;
+        |  color: #0ff
+        |}
+        |
+        |/* The actual content */
+        |.content {
+        |  padding: 3px;
+        |
+        |  border-radius: 4px;
+        |}
+        |
+        |/* Media queries - Responsive timeline on screens less than 600px wide */
+        |@media screen and (max-width: 600px) {
+        |/* Place the timelime to the left */
+        |  .timeline::after {
+        |    left: 31px;
+        |  }
+        |
+        |/* Full-width containers */
+        |  .container {
+        |    width: 100%;
+        |    padding-left: 10px;
+        |    padding-right: 25px;
+        |  }
+        |
+        |/* Make sure that all arrows are pointing leftwards */
+        |  .container::before {
+        |    left: 20px;
+        |    border: medium solid white;
+        |    border-width: 1px 1px 1px 0;
+        |    border-color: transparent white transparent transparent;
+        |  }
+        |
+        |/* Make sure all circles are at the same spot */
+        |  /*.right::after {
+        |    left: 0px;
+        |    background-color: #00e
+        |  }*/
+        |
+        |/* Make all right containers behave like the left ones */
+        |  .right {
+        |    left: 0%;
+        |  }
+        |}
+        |
+        |""".stripMargin
     val blogPageCss:String =
     """
       |

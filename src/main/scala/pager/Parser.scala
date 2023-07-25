@@ -19,7 +19,7 @@ case class Parser(config:Json){
   private val log = Logger(getClass.getName)
   private val homeTopLinePattern:Regex = "(\\s*\\{\\s*\\{\\s*PageType\\s*:\\s*HomePage\\s*\\}\\s*\\}\\s*)(.*)".r
   private val blogPagePattern:Regex = "(\\s*\\{\\s*\\{\\s*PageType\\s*:\\s*BlogPage\\s*\\}\\s*\\}\\s*)(.*)".r
-
+  private val listPagePattern:Regex = "(\\s*\\{\\s*\\{\\s*PageType\\s*:\\s*ListPage\\s*\\}\\s*\\}\\s*)(.*)".r
   private val pageQueue: mutable.Queue[Page] = new mutable.Queue[Page]()
 
 
@@ -38,7 +38,11 @@ case class Parser(config:Json){
         }else if(matches(blogPagePattern,pageContent(0))){
           val name = blogPagePattern.findFirstMatchIn (pageContent (0) ).get.group (2)
           Right(new BlogPage(name, name, s"${os.pwd.toString}/"+pagePath))
-        }else{
+        }else if(matches (listPagePattern,pageContent(0))){
+          val name = listPagePattern.findFirstMatchIn(pageContent(0)).get.group(2)
+          Right(new ListPage(name, name, s"${os.pwd.toString}/" + pagePath))
+        }
+        else{
           Left(s"No Match found for the page: ${pagePath}")
         }
     }
