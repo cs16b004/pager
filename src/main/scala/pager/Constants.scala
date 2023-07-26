@@ -13,7 +13,8 @@ object Constants{
     val homePageOpen:String = """
     <!DOCTYPE html>
         <html>
-        <head>"""
+        <head>
+        <meta charset="UTF-8" />"""
      val homePageTitleOpen:String =  "<title>"
      val homePageTitleClose:String =  "</title>"
      val homePageBodyOpen:String = """<link rel = "stylesheet" href="css/home-page.css">
@@ -36,7 +37,8 @@ object Constants{
     /* Blog Page Layout*/
     val blogPageOpenHead:String = """<!DOCTYPE html>
                                 <html>
-                                <head>"""
+                                <head>
+                                <meta charset="UTF-8" />"""
 
     val blogPageOpenTitle:String = """<title>"""
     val blogPageCloseTitle:String = """</title>"""
@@ -60,6 +62,7 @@ object Constants{
         |<!DOCTYPE html>
         |<html>
         |<head>
+        |<meta charset="UTF-8" />
         |    <title>
         |""".stripMargin
    val listPageHeadClose:String =

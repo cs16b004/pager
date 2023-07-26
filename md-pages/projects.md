@@ -9,12 +9,13 @@ I have experience in building and testing software with:
 - Microsoft Azure
 - Python
 
-Apart from this I experiment with a wide variety of in my projects.
+Apart from this I experiment with a wide variety of technologies in my projects.
 
 
 - Distributed Systems and Networking with C/C++.
-- Intel's DPDK framework.
-- Computer System Security.
+- [Intel's DPDK](https://www.dpdk.org) framework.
+- Docker.
+- [ghidra/GDB](https://ghidra-sre.org) (Reverse Engineering)
 - Django/Flask.
 
 
