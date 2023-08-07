@@ -1,6 +1,7 @@
  {{ PageType: BlogPage}} About
  
 I am a Software Engineer. My interest lie in systems, primarily:
+
 - Distributed Systems,
 - Computer Networks,
 - System Security.
@@ -14,7 +15,7 @@ Advised by [Dr. Shuai Mu](http://mpaxos.com).
 **Things I think I know about:**
 
 - Distributed System Concepts / Protocols
-- Computer Networks Protocols
+- Computer Network Protocols
 - Computer Security
 - Probability and Statistics.
 
@@ -22,7 +23,6 @@ Advised by [Dr. Shuai Mu](http://mpaxos.com).
 
 - Elementary Economics
 - Market Risk
-- International Relations
 - Indian National Movement
 
 **Things I should not know about (not exhaustive):**
