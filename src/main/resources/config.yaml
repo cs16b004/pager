@@ -5,7 +5,7 @@ pager:
   homePagePath: 'md-pages/home.md'
   site-pages: 'site-pages'
   linkedIn: 'https://www.linkedin.com/in/ayush-jain-122434191/'
-  github: 'https://github.com/cs16b004'
+  github: 'cs16b004'
   mail: 'ayush.jain.1@stonybrook.edu'
   cv: 'cv.html'
   iconPath: 'images/aj.jpeg'
