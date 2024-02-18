@@ -1,5 +1,5 @@
 
-ThisBuild / scalaVersion :="2.12.16"
+ThisBuild / scalaVersion :="2.13.12"
 
 val circeVersion = "0.14.1"
 

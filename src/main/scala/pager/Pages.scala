@@ -318,7 +318,7 @@ class ListPage (name:String, title:String, mdFilePath:String) extends Page(name:
                 var liCount = 0
                 var i=0
                 var j=0
-                val htmlMut: scala.collection.mutable.ArrayBuffer[Char] = (html.toCharArray).to[ArrayBuffer]
+                val htmlMut =  scala.collection.mutable.ArrayBuffer((html.toCharArray):_*)
                 while(j+4<html.length){
                     val liCan = html.substring(i,i+4)
 
